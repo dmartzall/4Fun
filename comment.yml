@@ -1,0 +1,11 @@
+- name: Add Comment to Python Script by adding a line comment above the command
+  lineinfile:
+    regexp: "^{{ item.property | regex_escape() }}="
+    line: "{{ item.property }}={{ item.value }}"
+  with_items:
+    - { property: 'import', value: '#This imports a module for Python to use
+    {{item.property}}' }
+    - { property: 'ans', value: '#Creates a variable called ans
+    {{item.property}}' }
+    - { property: 'while', value: '#starts the while loop to create answers based on the random number in the if elseif clauses
+    {{item.property}}' }
